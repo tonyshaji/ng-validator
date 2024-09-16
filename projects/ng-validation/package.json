@@ -1,5 +1,5 @@
 {
-  "name": "ng-validation",
+  "name": "ng-form-group-validation",
   "version": "0.0.1",
   "description": "A simple validation library for Angular",
   "author": "Tony Shaji",

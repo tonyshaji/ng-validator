@@ -1,0 +1,31 @@
+{
+  "name": "ng-validation",
+  "version": "0.0.1",
+  "description": "A simple validation library for Angular",
+  "author": "Tony Shaji",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonyshaji/ng-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tonyshaji/ng-validator/issues"
+  },
+  "homepage": "https://github.com/tonyshaji/ng-validator",
+  "keywords": [
+    "Angular",
+    "Javacdript",
+    "Typescript",
+    "Validator",
+    "ng-validator",
+    "reactive forms"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

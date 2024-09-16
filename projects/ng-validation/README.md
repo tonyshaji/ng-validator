@@ -5,17 +5,29 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 ## Usage
 
 to add in  component
-*<form [formGroup]="form">
+```
+@Component({
+  selector: 'app-root',
+  standalone: true,
+imports: [ NgValidationComponent, FormsModule, ReactiveFormsModule],
+...
+})
+```
+
+in html
+```<form [formGroup]="form">
         <validate label="name">
           <input #control formControlName="input" name="input">
         </validate>
-      </form>*
+      </form>
+```
 
-
-_.error-message {
+for styles
+```.error-message {
       color:red
     }
     .mandatory-sign {
       color: pink;
-    }_
+    }
+```
 for styles

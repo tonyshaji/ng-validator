@@ -1,11 +1,11 @@
 export const ERROR_MESSAGE = {
     // error: {
     required: (name: string, {...args}): string => `${name} is required`,
-    minlength: (name: string, {...args}): string => { console.log(args); return`${name} cannot be less than ${args?.["requiredLength"]} characters`},
+    minlength: (name: string, {...args}): string => `${name} cannot be less than ${args?.["requiredLength"]} characters`,
     maxlength: (name: string, {...args}): string => `${name} cannot be more than ${args?.["requiredLength"]} characters`,
     min: (name: string, {...args},): string => `${name} cannot be less than ${args?.["min"]}`,
     max: (name: string, {...args},): string => `${name} cannot be more than ${args?.["max"]}`,
-    email: (name: string, {...args}): string => `${name} is invalid`,
+    email: (name: string, {...args}): string => `${name} is not a valid email`,
     isNotAlphabet: (name: string, {...args}): string => `${name} should be alphabets`,
     isNotSmallCase: (name: string, {...args}): string => `${name} should be smallcase charecters`,
     isNotLargeCase: (name: string, {...args}): string => `${name} should be largecase charecters`,

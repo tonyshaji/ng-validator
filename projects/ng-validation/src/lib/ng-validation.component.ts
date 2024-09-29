@@ -14,19 +14,18 @@ const messages = {
   providers: [{ provide: 'CUSTOM_MESSAGES', useValue: messages }],
   template: `
     <div #formGroup class="form-group">
-    <div>
+      <div>
         {{label}} @if (validator) {<sup class="mandatory-sign">*</sup>}
-    </div>
-    <div>
+      </div>
+      <div>
         <ng-content></ng-content>
          @if (isControlError) 
           {<div class="error-message">
             {{errorMsg| async}}
           </div>
           }
+      </div>
     </div>
-
-</div>
   `,
   styles: ``
 })

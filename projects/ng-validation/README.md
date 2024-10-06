@@ -16,12 +16,14 @@ imports: [ NgValidationComponent, FormsModule, ReactiveFormsModule],
 ```
 
 in html
-```<form [formGroup]="form">
+``` <form [formGroup]="form">
         <validate label="name">
           <input #control formControlName="input" name="input">
         </validate>
-      </form>
+    </form>
 ```
+By using this compenent, you  have access to the formControls in your component enabling you to show, hide, disable, or enable the form controls based on other form controls or other variables in the component
+
 ### added messages
 | 	Error     | 	Message	                                              | 	
 | 	-----	    | 	----- 	                                              | 	

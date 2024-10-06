@@ -1,17 +1,13 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, ContentChild, ElementRef, Inject, Input, ViewChild } from '@angular/core';
+import { Component, ContentChild, ElementRef, Inject, Input, Optional, ViewChild } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { ERROR_MESSAGE } from './error-messages';
 
-const messages = {
-  required: 'This is invalid'
-}
 @Component({
   selector: 'validate',
   standalone: true,
   imports: [AsyncPipe],
-  providers: [{ provide: 'CUSTOM_MESSAGES', useValue: messages }],
   template: `
     <div #formGroup class="form-group">
       <div>
@@ -38,7 +34,7 @@ export class NgValidationComponent {
   requiredStar = false;
   errorMsg = new BehaviorSubject<string>("");
 
-  constructor(@Inject('CUSTOM_MESSAGES') public customMessages: any) { }
+  constructor(@Optional ()@Inject('CUSTOM_MESSAGES') public customMessages: any = {} ) { }
 
   ngAfterViewInit(): void {
     this.formControl?.control?.valueChanges.subscribe(value => {
@@ -56,10 +52,6 @@ export class NgValidationComponent {
 
   get validator() {
     return this?.formControl?.control?.hasValidator(Validators.required)
-    // console.log(validator);
-    // if (validator) {
-    //   return true;
-    // }
   }
   getErrorMessage(formControl: NgControl, field: string) {
     let name: string = field || 'This Field';
@@ -68,16 +60,13 @@ export class NgValidationComponent {
       const errors: any = formControl.control?.errors
       const [errorKey] = Object.keys(errors)
       let message = `${name}  is invalid`;
-      if (errorKey in ERROR_MESSAGE) {
-        return ERROR_MESSAGE[errorKey as keyof typeof ERROR_MESSAGE](name, errors[errorKey]);
-      } else if (errorKey in this.customMessages) {
+      if ( this.customMessages &&errorKey in this.customMessages) {
+        
         return this.customMessages[errorKey as keyof typeof this.customMessages](name, errors[errorKey]);
+      } else if (errorKey in ERROR_MESSAGE) {
+        return ERROR_MESSAGE[errorKey as keyof typeof ERROR_MESSAGE](name, errors[errorKey]);
       }
-      // if (errorKey === 'minlength' || errorKey === 'maxlength'|| errorKey === 'min' || errorKey === 'max') {
-      // message = ERROR_MESSAGE[errorKey](name, error[errorKey])
-      // } else {
-      // message = this.customMessages[errorKey](name, error[errorKey])
-      // }
+
       return message;
     }
     return (`${name}  is invalid`)

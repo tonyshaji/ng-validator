@@ -38,6 +38,7 @@ export class NgValidationComponent {
 
   ngAfterViewInit(): void {
     this.formControl?.control?.valueChanges.subscribe(value => {
+      debugger;
       if (this.formControl && this.formControl.control && this.formControl.control.errors) {
         this.formGroup.nativeElement.classList.add('e-error');
         this.isControlError = true;

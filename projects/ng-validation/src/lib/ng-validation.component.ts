@@ -5,10 +5,9 @@ import { BehaviorSubject } from 'rxjs';
 import { ERROR_MESSAGE } from './error-messages';
 
 @Component({
-  selector: 'validate',
-  standalone: true,
-  imports: [AsyncPipe],
-  template: `
+    selector: 'validate',
+    imports: [AsyncPipe],
+    template: `
     <div #formGroup class="form-group">
       <div>
         {{label}} @if (validator) {<sup class="mandatory-sign">*</sup>}
@@ -23,7 +22,7 @@ import { ERROR_MESSAGE } from './error-messages';
       </div>
     </div>
   `,
-  styles: ``
+    styles: ``
 })
 export class NgValidationComponent {
   @Input() label = "field";

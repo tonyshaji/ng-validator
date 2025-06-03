@@ -9,12 +9,11 @@ const customMessage = {
   required: (name: string, {...args}): string => `this is invalid`,
 }
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NgValidationComponent, FormsModule, ReactiveFormsModule],
-  // providers: [{ provide: 'CUSTOM_MESSAGES', useValue: customMessage, }],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [RouterOutlet, NgValidationComponent, FormsModule, ReactiveFormsModule],
+    // providers: [{ provide: 'CUSTOM_MESSAGES', useValue: customMessage, }],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 
 export class AppComponent {

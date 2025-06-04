@@ -10,6 +10,7 @@ const customMessage = {
 }
 @Component({
     selector: 'app-root',
+    standalone: true,
     imports: [RouterOutlet, NgValidationComponent, FormsModule, ReactiveFormsModule],
     // providers: [{ provide: 'CUSTOM_MESSAGES', useValue: customMessage, }],
     templateUrl: './app.component.html',

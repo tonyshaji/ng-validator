@@ -6,6 +6,7 @@ import { ERROR_MESSAGE } from './error-messages';
 
 @Component({
     selector: 'validate',
+    standalone: true,
     imports: [AsyncPipe],
     template: `
     <div #formGroup class="form-group">
